@@ -75,7 +75,7 @@ namespace AnimalStore
         //Apply [Orders] <Price> Filter
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dataGridView2.DataSource = orderService.GetOrders(decimal.Parse(minPriceTextBox.Text), decimal.Parse(minPriceTextBox.Text));
+            dataGridView2.DataSource = orderService.GetOrders(decimal.Parse(minPriceTextBox.Text), decimal.Parse(maxPriceTextBox.Text));
         }
 
         private void button4_Click_1(object sender, EventArgs e)

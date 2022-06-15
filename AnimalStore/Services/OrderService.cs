@@ -172,14 +172,6 @@ namespace AnimalStore.Services
                 })
                 .ToList();
 
-            var orders = repo.All<Order>()
-                .Select(o => new
-                {
-                    o.OrderId,
-                    o.DateAndTime,
-                    o.Fullfilled
-                })
-                .ToList();
 
             if (minPrice != null)
             {
@@ -188,24 +180,11 @@ namespace AnimalStore.Services
 
             if (maxPrice != null)
             {
-                ordersDetails = ordersDetails.Where(od => od.TotalPrice <= minPrice).ToList();
+                ordersDetails = ordersDetails.Where(od => od.TotalPrice <= maxPrice).ToList();
             }
 
-            foreach (var od in ordersDetails)
-            {
-                var order = orders.FirstOrDefault(o => o.OrderId == od.Id);
 
-                result.Add(new
-                {
-                    Product = od.Product,
-                    OrderedQuantity = od.OrderedQuantity,
-                    Date = order.DateAndTime.ToString("dd.MM.yyyy"),
-                    Fullfilled = order.Fullfilled,
-                    TotalPrice = od.TotalPrice
-                });
-            }
-
-            return result;
+            return ordersDetails;
         }
     }
 }
