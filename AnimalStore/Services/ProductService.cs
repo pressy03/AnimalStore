@@ -49,7 +49,7 @@ namespace AnimalStore.Services
                 })
                 .ToList();
 
-            if(minPrice != null)
+            if (minPrice != null)
             {
                 products = products
                     .Where(p => p.Price >= minPrice)
@@ -81,6 +81,25 @@ namespace AnimalStore.Services
                 })
                 .Where(p => p.Product == productName)
                 .ToList();
+        }
+        public IEnumerable<object> GetProducts(decimal? minPrice, decimal? maxPrice)
+        {
+            List<object> result = new List<object>();
+
+            var productDetails = repo.All<TypesOfProduct>()
+                .Select(x => new
+                {
+                    x.TypeName,
+                    x.TypeOfType.TypeOfTypeName,
+                    x.Animal.AnimalName,
+                    x.AvailableQuantity,
+                    x.Price
+
+                })
+                .ToList();
+            return result;
+
+
         }
     }
 }

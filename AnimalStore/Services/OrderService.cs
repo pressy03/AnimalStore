@@ -181,7 +181,7 @@ namespace AnimalStore.Services
                 })
                 .ToList();
 
-            if(minPrice != null)
+            if (minPrice != null)
             {
                 ordersDetails = ordersDetails.Where(od => od.TotalPrice >= minPrice).ToList();
             }

@@ -77,5 +77,21 @@ namespace AnimalStore
         {
             dataGridView2.DataSource = orderService.GetOrders(decimal.Parse(minPriceTextBox.Text), decimal.Parse(minPriceTextBox.Text));
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            var products  = productService.GetProducts(textBox1.Text);
+            dataGridView1.DataSource = products;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = productService.GetProducts(decimal.Parse(textBox3.Text), decimal.Parse(textBox2.Text));
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
