@@ -79,12 +79,6 @@ CREATE TABLE OrderDetails
 	CONSTRAINT PK_OrderID_TypeID PRIMARY KEY CLUSTERED (OrderID, TypeID)
 );
 
-CREATE TABLE Holidays
-(
-	HolidayName NVARCHAR(50) NOT NULL,
-	HolidayDate DATE NOT NULL
-)
-
 GO
 
 --| INSERTING DATA |--
@@ -163,21 +157,7 @@ VALUES
 	(CONVERT(DATE,'2000-05-13')),
 	(CONVERT(DATE,'1994-07-11'));
 
-INSERT INTO Holidays (HolidayDate, HolidayName)
-VALUES
-	(CONVERT(DATE,'2022-01-01'),'Нова година'),
-	(CONVERT(DATE,'2021-03-03'),'Национален празник'),
-	(CONVERT(DATE,'2021-04-30'),'Разпети петък'),
-	(CONVERT(DATE,'2021-05-01'),'Велика събота, Ден на труда'),
-	(CONVERT(DATE,'2021-05-02'),'Великден'),
-	(CONVERT(DATE,'2021-05-06'),'Гергьовден'),
-	(CONVERT(DATE,'2021-05-24'),'Ден на българската писменост и просвета'),
-	(CONVERT(DATE,'2021-09-06'),'Ден на Съединението на България'),
-	(CONVERT(DATE,'2021-09-22'),'Ден на Независимостта на България'),
-	(CONVERT(DATE,'2021-11-01'),'Ден на народните будители'),
-	(CONVERT(DATE,'2021-12-24'),'Бъдни вечер'),
-	(CONVERT(DATE,'2021-12-25'),'Рождество Христово'),
-	(CONVERT(DATE,'2021-12-26'),'Рождество Христово');
+
 
 INSERT INTO Animals(AnimalName)
 VALUES 
